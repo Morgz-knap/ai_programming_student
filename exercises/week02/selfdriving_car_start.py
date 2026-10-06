@@ -23,12 +23,25 @@ class Nothing:
 class SelfDrivingCar:
     def __init__(self):
         # TODO: interne state — welke variabele heb je nodig?
-        pass
+        self.previous_distance = 10
 
     def process(self, sensor_input):
         # TODO: bereken relatieve snelheid en tijd tot botsing
         #       rem als tijd < 5 seconden
-        action = Nothing()
+        current_distance = sensor_input.DistanceTo
+
+        relative_speed = self.previous_distance - current_distance
+
+        if relative_speed > 0:
+            time_to_collision = current_distance / relative_speed
+            if time_to_collision < 5:
+                action = Brake()
+            else:
+                action = Nothing()
+        else:
+            action = Nothing()
+        self.previous_distance = current_distance
+
         return action
 
 
