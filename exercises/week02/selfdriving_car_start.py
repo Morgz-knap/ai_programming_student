@@ -1,7 +1,7 @@
 """
 Oefening 1: Self-Driving Car (Model-based Reflex Agent)
 ========================================================
-Implementeer een agent die zijn voorligger volgt op 10m.
+Implementeer een agent die zijn voorligger volgt.
 """
 
 
@@ -26,7 +26,7 @@ class SelfDrivingCar:
         self.previous_distance = 10
 
     def process(self, sensor_input):
-        # TODO: bereken relatieve snelheid en tijd tot botsing
+        # TODO: bereken relatieve snelheid en tijd tot botsing; 
         #       rem als tijd < 5 seconden
         current_distance = sensor_input.DistanceTo
 
